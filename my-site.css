@@ -1,11 +1,10 @@
 b@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 *{
-    font-family: Georgia, serif !important;
+    font-family: serif !important;
 }
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Bitter', serif;
 }
 
 :root {
