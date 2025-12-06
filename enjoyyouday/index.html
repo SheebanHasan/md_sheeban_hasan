@@ -285,7 +285,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 <div id="container"></div>
+<audio id="bgMusic" autoplay loop style="display:none;">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<script>
+  // Autoplay fix for mobile & desktop browsers
+  document.addEventListener("click", function () {
+      const audio = document.getElementById("bgMusic");
 
+      // Play only if paused (multiple clicks avoid)
+      if (audio.paused) {
+          audio.play();
+      }
+  });
+</script>
 <div class="input-container">
   <div class="input-wrapper">
     <input
