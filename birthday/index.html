@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday My Love ❤️</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+      } /* HERO SECTION */
+      .hero {
+        text-align: center;
+        padding: 20px;
+        color: white;
+        position: relative;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        font-family: "Great Vibes", cursive;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      } /* FLOATING HEARTS */
+      .heart {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 25px;
+        animation: float 9s infinite ease-in;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-420px);
+          opacity: 0;
+        }
+      } /* SURPRISE BUTTON */
+      .btn {
+        background: #fff;
+        border: none;
+        padding: 15px 35px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        transform: scale(1.08);
+      } /* HIDDEN MESSAGE */
+      #msgBox {
+        margin: 40px auto;
+        width: 80%;
+        padding: 20px;
+        background: white;
+        border-radius: 20px;
+        display: none;
+        font-size: 1.1rem;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      } /* GALLERY */
+      .gallery {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px;
+      }
+      .gallery img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+      .gallery img:hover {
+        transform: scale(1.07);
+      } /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 30px;
+        font-size: 1rem;
+        color: white;
+        margin-top: 40px;
+      }
+      #page-load {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .hey-btn {
+        background: #ff6f91;
+        border: none;
+        padding: 20px 40px;
+        font-size: 1.5rem;
+        border-radius: 50px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+      }
+      .hey-btn:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page-load">
+      <button class="hey-btn" onclick="start()">Hey, Click Me 🎀</button>
+    </div>
+    <audio id="bgMusic" autoplay loop>
+      <source src="birthday-song.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="hero">
+      <h1>Happy Birthday My Love ❤️</h1>
+      <p>You make my world beautiful.</p>
+      <button class="btn" onclick="revealMessage()">Click Me 🎉</button>
+    </div>
+    <!-- Floating Hearts -->
+    <script>
+      function start() {
+        document.getElementById("page-load").style.display = "none";
+        document.getElementById("bgMusic").volume = 0.2;
+        document.getElementById("bgMusic").play();
+      }
+      for (let i = 0; i < 18; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random(1, 100) * 100 + "vw";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+        heart.innerHTML = "💖";
+        document.body.appendChild(heart);
+      }
+    </script>
+    <!-- Hidden Message -->
+    <div id="msgBox">
+      <h2
+        style="
+          text-align: center;
+          color: #ee4e86;
+          font-family: 'Great Vibes', cursive;
+          font-size: 2.2rem;
+        "
+      >
+        My Special Message for You ❤️
+      </h2>
+      <p>
+        Happy Birthday to the most beautiful person in my life! 💖<br /><br />
+        Thank you for making my world brighter just by being in it. You are my
+        happiness, my peace, and my forever. I hope your day is filled with joy,
+        laughter, and everything your heart desires. I love you more than words
+        can ever express. 💕
+      </p>
+      <div style="text-align: center">
+        <img
+          src="istockphoto-1251208035-612x612.jpg"
+          alt=""
+          style="
+            width: 150px;
+            height: 205px;
+            margin-top: 15px;
+            border-radius: 10px;
+          "
+        />
+      </div>
+    </div>
+    <footer>Made with ❤️ only for you</footer>
+    <script>
+      function revealMessage() {
+        document.getElementById("msgBox").style.display = "block";
+        confetti({ particleCount: 200, spread: 100 });
+      }
+    </script>
+  </body>
+</html>
