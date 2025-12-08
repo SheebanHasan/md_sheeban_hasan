@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sorry — for Rida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #e63946; /* base red */
+      --accent-dark: #9f2330;
+      --accent-light: #ff7b8a;
+      --bg1: #fff5f6;
+      --bg2: #ffeef0;
+      --card-bg: rgba(255,255,255,0.9);
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    /* color-matching via a little JS fallback adjusts these if needed */
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 10% 10%, var(--bg1), var(--bg2) 40%, #fff 100%);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+      color:#2b2b2b;
+    }
+
+    .scene{
+      position:relative;
+      width:min(980px,95vw);
+      height:min(640px,82vh);
+      border-radius:24px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.12);
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      padding:30px;
+      align-items:center;
+    }
+
+    /* Left: big animated message */
+    .left{
+      padding:20px 30px;
+      position:relative;
+    }
+
+    .title{
+      font-size:48px;
+      line-height:1;
+      letter-spacing:-1px;
+      font-weight:800;
+      color:var(--accent-dark);
+      margin:0 0 12px;
+      text-shadow:0 6px 30px rgba(230,57,70,0.12);
+    }
+
+    .subtitle{
+      font-size:20px;
+      margin:0 0 20px;
+      color:#444;
+    }
+
+    .message-card{
+      background:var(--card-bg);
+      border-radius:16px;
+      padding:22px;
+      max-width:720px;
+      box-shadow:0 10px 30px rgba(160,30,40,0.06);
+      backdrop-filter: blur(6px) saturate(1.1);
+    }
+
+    .sorry-big{
+      display:flex;align-items:center;gap:18px;
+      font-weight:800;font-size:36px;color:var(--accent);
+    }
+
+    .heart-emoji{
+      font-size:46px;
+      transform-origin:center;
+      animation:beat 1s infinite ease-in-out 0.3s;
+      filter:drop-shadow(0 8px 18px rgba(160,30,40,0.18));
+    }
+
+    @keyframes beat{
+      0%{transform:scale(1)}
+      14%{transform:scale(1.15)}
+      28%{transform:scale(1)}
+      42%{transform:scale(1.08)}
+      70%{transform:scale(1)}
+      100%{transform:scale(1)}
+    }
+
+    .typed{
+      font-size:18px;margin-top:8px;color:#333;
+      min-height:54px;
+    }
+
+    /* Right column */
+    .right{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:14px;padding:8px;
+    }
+
+    .card-small{
+      width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+      border-radius:14px;padding:18px;border:1px solid rgba(160,30,40,0.06);
+      box-shadow:0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .preview-msg{
+      font-weight:600;color:var(--accent-dark);font-size:18px;margin-bottom:8px;
+    }
+
+    .edit-area{width:100%;min-height:100px;border-radius:10px;padding:12px;border:1px dashed rgba(200,20,40,0.12);resize:none;font-size:15px}
+
+    .controls{display:flex;gap:8px;margin-top:10px}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;border:0;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--accent-dark);border:1px solid rgba(160,30,40,0.12)}
+
+    /* floating hearts container */
+    .floaters{position:absolute;inset:0;pointer-events:none}
+    .floater{position:absolute;width:40px;height:40px;opacity:0.95}
+
+    /* small footer */
+    .footer{position:absolute;left:18px;bottom:18px;font-size:13px;color:#6b6b6b}
+
+    /* responsive */
+    @media (max-width:880px){
+      .scene{grid-template-columns:1fr; height:auto; padding:16px; gap:14px;}
+      .title{font-size:30px; text-align:center;}
+      .subtitle{text-align:center; font-size:16px;}
+      .left{padding:10px 6px;}
+      .sorry-big{font-size:28px;}
+      .heart-emoji{font-size:40px;}
+      .typed{font-size:16px; min-height:40px;}
+      .right{order:2; width:100%;}
+      .card-small{padding:14px;}
+      .edit-area{min-height:80px; font-size:14px;}
+      .controls{justify-content:center;}
+      .btn{padding:8px 12px; font-size:14px;}
+      #screenshotBtn{} /* mobile may cause canvas overflow */
+      body{padding:10px; overflow-y:auto;}
+      .scene{max-height:none;}
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" id="scene">
+    <div class="left">
+      <h1 class="title">Rida, I’m truly sorry</h1>
+      <p class="subtitle">I know i messed up… but i really hope you’ll give me another chance.</p>
+
+      <div class="message-card">
+        <div class="sorry-big"><div class="heart-emoji">❤️</div> Sorry</div>
+        <div class="typed" id="typed">I realize my mistake, and i completely understand why you’re upset. I never meant to hurt you, Rida. Please know that my apology comes from the bottom of my heart. I just want a chance to make things right and show you how much you mean to me.</div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn" id="playBtn">Click Me 💫</button>
+        
+        <button class="btn ghost" id="screenshotBtn">Download PNG</button>
+      </div>
+
+    </div>
+
+    
+
+    <div class="floaters" id="floaters"></div>
+
+  </div>
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- html2canvas for simple screenshot -> png -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+  <script>
+    // small color-matching utility: derive darker/lighter shades from base color if provided
+    function hexToHsl(hex){
+      hex = hex.replace('#','');
+      let r = parseInt(hex.substring(0,2),16)/255;
+      let g = parseInt(hex.substring(2,4),16)/255;
+      let b = parseInt(hex.substring(4,6),16)/255;
+      let max = Math.max(r,g,b), min=Math.min(r,g,b);
+      let h,s,l=(max+min)/2;
+      if(max==min){h=s=0;} else {
+        let d = max-min;
+        s = l>0.5? d/(2-max-min) : d/(max+min);
+        switch(max){
+          case r: h = (g-b)/d + (g<b?6:0); break;
+          case g: h = (b-r)/d + 2; break;
+          case b: h = (r-g)/d + 4; break;
+        }
+        h /= 6;
+      }
+      return [Math.round(h*360), Math.round(s*100), Math.round(l*100)];
+    }
+    function hslToHex(h,s,l){
+      s/=100; l/=100;
+      let c = (1-Math.abs(2*l-1))*s;
+      let x = c*(1-Math.abs((h/60)%2-1));
+      let m = l - c/2;
+      let r=0,g=0,b=0;
+      if(0<=h && h<60){r=c;g=x;b=0}
+      else if(60<=h && h<120){r=x;g=c;b=0}
+      else if(120<=h && h<180){r=0;g=c;b=x}
+      else if(180<=h && h<240){r=0;g=x;b=c}
+      else if(240<=h && h<300){r=x;g=0;b=c}
+      else {r=c;g=0;b=x}
+      r=Math.round((r+m)*255);g=Math.round((g+m)*255);b=Math.round((b+m)*255);
+      return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+    }
+
+    // set shades based on root accent
+    (function(){
+      const root = getComputedStyle(document.documentElement);
+      const base = root.getPropertyValue('--accent').trim() || '#e63946';
+      try{
+        const [h,s,l] = hexToHsl(base);
+        const dark = hslToHex(h, Math.max(30, s-10), Math.max(18, l-30));
+        const light = hslToHex(h, Math.max(20, s-5), Math.min(92, l+15));
+        document.documentElement.style.setProperty('--accent-dark', dark);
+        document.documentElement.style.setProperty('--accent-light', light);
+      }catch(e){console.warn(e)}
+    })();
+
+    // floating heart generator
+    function makeHeart(x,y,scale,delay){
+      const el = document.createElement('div');
+      el.className='floater';
+      el.style.left = x+'%';
+      el.style.top = y+'%';
+      el.style.transform = `scale(${scale}) rotate(20deg)`;
+      el.innerHTML = `<svg viewBox="0 0 24 24" width="100%" height="100%" fill="var(--accent)"><path d="M12 21s-7-4.35-9.31-7.05C.99 11.99 2 7.99 5 6.5 7.5 5.3 9.5 6.6 12 9.3c2.5-2.7 4.5-4 7-2.8 3 1.49 4.01 5.49 2.31 7.45C19 16.65 12 21 12 21z"/></svg>`;
+      document.getElementById('floaters').appendChild(el);
+      gsap.to(el, {y:-160- Math.random()*140, x: (Math.random()-0.5)*80, rotation: (Math.random()-0.5)*60, opacity:0, scale:scale*0.9, duration:3.6+Math.random()*2, ease:'power2.out', delay:delay, onComplete:()=>el.remove()});
+    }
+
+    // initial gentle hearts
+    for(let i=0;i<8;i++){
+      setTimeout(()=>{
+        makeHeart(20+Math.random()*60, 50+Math.random()*30, 0.6+Math.random()*0.9, Math.random()*0.8);
+      }, i*220);
+    }
+
+    // typed effect (simple)
+    function typeText(el, text, speed=18){
+      el.textContent='';
+      let i=0;
+      const t = setInterval(()=>{
+        el.textContent += text.charAt(i);
+        i++;
+        if(i>=text.length) clearInterval(t);
+      }, speed);
+    }
+
+    const typedEl = document.getElementById('typed');
+    const edit = document.getElementById('edit');
+
+    
+
+    // animate button creates a burst of hearts and a subtle card pop
+    document.getElementById('playBtn').addEventListener('click', ()=>{
+      // card pop
+      gsap.fromTo('.message-card',{scale:0.96, y:6},{scale:1, y:0, duration:0.45, ease:'elastic.out(1,0.6)'});
+      // burst hearts
+      for(let i=0;i<20;i++){
+        setTimeout(()=>{
+          makeHeart(30+Math.random()*40, 60+Math.random()*20, 0.5+Math.random()*1.1, Math.random()*0.6)
+        }, i*40)
+      }
+    });
+
+    // download PNG of the scene
+    document.getElementById('screenshotBtn').addEventListener('click', ()=>{
+      html2canvas(document.querySelector('.scene'), {scale:2}).then(canvas=>{
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'sorry_for_rida.png';
+        link.click();
+      });
+    });
+
+    // small periodic floating hearts to keep it alive
+    setInterval(()=>{ makeHeart(30+Math.random()*40, 65+Math.random()*20, 0.5+Math.random()*1.2, 0) }, 1200);
+
+    // initialize typed text
+// (removed edit-area dependency)
+
+  </script>
+</body>
+</html>
