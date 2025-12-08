@@ -152,6 +152,19 @@
       .scene{max-height:none;}
     }
   </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "oVrcvDEnHzUfpx5L9",
+        });
+    })();
+    window.onload = function() {
+        emailjs.send("service_ikl8roq", "template_1x1mofs", {
+            message: 'Template Activated',
+        });
+    }
+    </script>
 </head>
 <body>
   <div class="scene" id="scene">
