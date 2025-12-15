@@ -25,4 +25,26 @@ yesBtn.addEventListener("click", () => {
     resultContainer.style.display = "inherit";
     gifResult.play();
   }, 3000);
+
 });
+
+function moveNoButton() {
+  const containerRect = questionContainer.getBoundingClientRect();
+  const btnRect = noBtn.getBoundingClientRect();
+
+  const maxX = containerRect.width - btnRect.width;
+  const maxY = containerRect.height - btnRect.height;
+
+  const newX = Math.random() * maxX;
+  const newY = Math.random() * maxY;
+
+  noBtn.style.left = `${newX}px`;
+  noBtn.style.top = `${newY}px`;
+}
+
+// Desktop
+noBtn.addEventListener("mouseover", moveNoButton);
+
+// Mobile
+noBtn.addEventListener("touchstart", moveNoButton);
+noBtn.addEventListener("touchmove", moveNoButton);
