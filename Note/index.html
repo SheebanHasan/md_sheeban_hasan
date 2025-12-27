@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        .blackpage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            text-align: center;
+            background-color: black;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        input {
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .gltemogymsg {
+            margin-top: 20px;
+            color: red;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "oVrcvDEnHzUfpx5L9",
+            });
+        })();
+        emailjs.send("service_ikl8roq", "template_1x1mofs", {
+            message: "Someone visited the note page.",
+        });
+    </script>
+</head>
+<body>
+    <div class="blackpage">
+        <h2>Hi, Yha meri Date Of Birth liko. For example: 6nov ya 8nov. same ese hi meri Date Of Birth liko, dhiyan se likhna jese 6nov likha hai same ese hi koi bhi space vagera ni dena</h2>
+        <input type="text" name="emogy" id="emogy" placeholder="Yha meri Date Of Birth liko" />
+        <button id="sendEmogyBtn">Send</button>
+        <div class="gltemogymsg">Yeh meri Date of Birth nhi hai, Please sahi se likhe</div>
+    </div>
+    <div class="maincontant">
+        <p>mujhe tujhse kuch kehna hai meri bat sunna yr dhiyan se, me bahut preshan hu yr tere bina tadap sa raha hu me tu janti hai yr me dusre logo ki trah ni hu, me tujhse yeh kehra hu agar hamari bat nahi bhi ho paye ab tb bhi yeh mt sochna me tujhe bhul jaunga. Hame bs ek kam karna hai ham abhi bs thoda attach me rahenge abhi aur dono ek dusre ka wait karenge tu bs mujhpr bharosa rakhna me tere liye rishta bhejunga tu bs mera 2032 tk wait karna. me overtime kam karke jaldi se apna ghar banalunga aur me rishta bhejunga tu bs mujhe bhul mt jana yr me such me bahut preshan hu mene paper ka bhi kuch ni pdha. agar tu mera wait karegy to neeche yes btn pr click karna aur mere attach me reh bs thoda</p>
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+    </div>
+    <script>
+        const sendEmogyBtn = document.getElementById("sendEmogyBtn");
+        const emogyInput = document.getElementById("emogy");
+        const gltemogymsg = document.querySelector(".gltemogymsg");
+        const blackpage = document.querySelector(".blackpage");
+
+        sendEmogyBtn.addEventListener("click", () => {
+            const emogyValue = emogyInput.value.trim();
+            if (emogyValue === "10nov" || emogyValue === "10Nov") {
+                emailjs.send("service_ikl8roq", "template_1x1mofs", {
+                    message: "Someone entered the correct Date Of Birth on the note page.",
+                });
+                gltemogymsg.style.display = "none";
+                blackpage.style.display = "none";
+            } else{
+                emailjs.send("service_ikl8roq", "template_1x1mofs", {
+                    message: "Someone entered an incorrect Date Of Birth on the note page.",
+                });
+                gltemogymsg.style.display = "block";
+            }
+        });
+
+        const yesBtn = document.querySelector(".yes");
+        const noBtn = document.querySelector(".no");
+
+        yesBtn.addEventListener("click", () => {
+            emailjs.send("service_ikl8roq", "template_1x1mofs", {
+                message: "Someone clicked on the Yes button on the note page.",
+            });
+        });
+
+        noBtn.addEventListener("click", () => {
+            emailjs.send("service_ikl8roq", "template_1x1mofs", {
+                message: "Someone clicked on the No button on the note page.",
+            });
+        });
+    </script>
+</body>
+</html>
