@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<script>
+  alert("Unable to execute this page. Please contact Sheeban Hasan for help.");
+</script>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Rida ❤️</title>
+<title>Happy Birthday Arshi ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,7 +32,6 @@
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e8437a' d='M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z'/%3E%3C/svg%3E"), auto;
   }
 
-  /* =========== CANVAS PARTICLES =========== */
   #particle-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -38,7 +40,6 @@
     z-index: 0;
   }
 
-  /* =========== MUSIC PLAYER =========== */
   #music-player {
     position: fixed;
     top: 18px; right: 20px;
@@ -72,7 +73,6 @@
     color: var(--blush);
   }
 
-  /* =========== HERO =========== */
   #hero {
     position: relative;
     min-height: 100vh;
@@ -185,7 +185,6 @@
     to { opacity: 1; }
   }
 
-  /* =========== SECTION BASE =========== */
   section { position: relative; z-index: 1; }
   .section-inner {
     max-width: 900px;
@@ -213,7 +212,6 @@
     margin-bottom: 40px;
   }
 
-  /* Reveal on scroll */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -224,7 +222,6 @@
     transform: none;
   }
 
-  /* =========== DIVIDER =========== */
   .divider {
     text-align: center;
     padding: 20px 0;
@@ -233,7 +230,6 @@
     color: rgba(232,67,122,0.4);
   }
 
-  /* =========== LOVE MESSAGE =========== */
   #love-message {
     padding: 100px 0 80px;
     background: linear-gradient(180deg, transparent 0%, rgba(60,0,65,0.6) 50%, transparent 100%);
@@ -289,7 +285,6 @@
     color: var(--blush);
   }
 
-  /* =========== GALLERY =========== */
   #gallery {
     padding: 100px 0 80px;
   }
@@ -326,7 +321,6 @@
   .gallery-item:hover .overlay { opacity: 1; }
   .overlay-heart { font-size: 2rem; }
 
-  /* Lightbox */
   #lightbox {
     display: none;
     position: fixed; inset: 0;
@@ -350,7 +344,6 @@
   }
   #lightbox-close:hover { opacity: 1; }
 
-  /* =========== WISHES =========== */
   #wishes {
     padding: 100px 0 80px;
     background: linear-gradient(180deg, transparent, rgba(60,0,65,0.5), transparent);
@@ -381,7 +374,6 @@
     transform: translateX(0);
   }
 
-  /* =========== SURPRISE =========== */
   #surprise {
     padding: 100px 0 80px;
     text-align: center;
@@ -451,14 +443,12 @@
     color: rgba(255,255,255,0.9);
   }
 
-  /* Confetti canvas */
   #confetti-canvas {
     position: fixed; inset: 0;
     pointer-events: none;
     z-index: 9000;
   }
 
-  /* =========== FOOTER =========== */
   footer {
     padding: 80px 24px 60px;
     text-align: center;
@@ -487,7 +477,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* =========== RESPONSIVE =========== */
   @media (max-width: 600px) {
     .love-card { padding: 32px 24px; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -499,27 +488,23 @@
 </head>
 <body>
 
-<!-- Particles -->
 <canvas id="particle-canvas"></canvas>
 <canvas id="confetti-canvas"></canvas>
 
-<!-- Music Player -->
 <div id="music-player">
   <button id="play-btn" onclick="toggleMusic()" title="Play/Pause Music">▶</button>
   <span class="music-label">Our Song ♪</span>
 </div>
-<!-- Replace src with your romantic audio file -->
 <audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ========== HERO ========== -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="floating-hearts-container" id="fh-container"></div>
 
   <p class="hero-eyebrow">✨ A Beautiful Day ✨</p>
-  <h1 class="hero-title">Belated Happy Birthday<br>Rida ❤️</h1>
+  <h1 class="hero-title">Belated Happy Birthday<br>Arshi ❤️</h1>
   <p class="hero-sub">You are truly a wonderful person — graceful, intelligent, and someone I’ve always admired.</p>
 
   <div class="hero-scroll">
@@ -530,7 +515,6 @@
 
 <div class="divider">❤ ✦ ❤ ✦ ❤</div>
 
-<!-- ========== LOVE MESSAGE ========== -->
 <section id="love-message">
   <div class="section-inner">
     <div class="reveal">
@@ -546,7 +530,6 @@
 
 <div class="divider">❤ ✦ ❤ ✦ ❤</div>
 
-<!-- ========== GALLERY ========== -->
 <section id="gallery">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
@@ -554,12 +537,10 @@
       <h2 class="section-heading">Every Glimpse of You</h2>
     </div>
     <div class="gallery-grid reveal" id="gallery-grid">
-      <!-- Images will be injected by JS -->
     </div>
   </div>
 </section>
 
-<!-- Lightbox -->
 <div id="lightbox">
   <button id="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightbox-img" src="" alt="Memory">
@@ -567,7 +548,6 @@
 
 <div class="divider">❤ ✦ ❤ ✦ ❤</div>
 
-<!-- ========== WISHES ========== -->
 <section id="wishes">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;">
@@ -588,7 +568,6 @@
 
 <div class="divider">❤ ✦ ❤ ✦ ❤</div>
 
-<!-- ========== SURPRISE ========== -->
 <section id="surprise">
   <div class="section-inner">
     <div class="reveal">
@@ -604,7 +583,7 @@
       <div class="surprise-card">
         <span class="surprise-emoji">💌</span>
         <p class="surprise-text">
-          Rida, I may not have spent a lot of time with you, but every time I saw you, I couldn’t help but admire how beautiful, intelligent, and graceful you are. Somewhere along the way, I started caring for you more than I ever planned to.<br><br>
+          Arshi, I may not have spent a lot of time with you, but every time I saw you, I couldn’t help but admire how beautiful, intelligent, and graceful you are. Somewhere along the way, I started caring for you more than I ever planned to.<br><br>
           I just hope that the person you marry always understands your worth, makes you smile every day, and gives you all the love you truly deserve.<br><br>
           You’ll always be someone special to me, quietly and sincerely.💖<br><br>
         </p>
@@ -613,16 +592,13 @@
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
 <footer>
   <p class="footer-text">Always wishing you happiness ❤️</p>
-  <p class="footer-sub">Made with all my love, just for you · Rida Birthday 2026</p>
+  <p class="footer-sub">Made with all my love, just for you · Arshi Birthday 2026</p>
 </footer>
 
 <script>
-/* =========================================
-   FLOATING HEARTS HERO
-========================================= */
+
 const fhContainer = document.getElementById('fh-container');
 const heartEmojis = ['❤️','💕','💖','💗','💓','💝','🌸','✨'];
 function spawnHeart() {
@@ -639,9 +615,7 @@ function spawnHeart() {
 setInterval(spawnHeart, 600);
 for (let i = 0; i < 8; i++) setTimeout(spawnHeart, i * 200);
 
-/* =========================================
-   PARTICLE CANVAS
-========================================= */
+
 const pCanvas = document.getElementById('particle-canvas');
 const pCtx = pCanvas.getContext('2d');
 let particles = [];
@@ -688,18 +662,14 @@ function animateParticles() {
 }
 animateParticles();
 
-/* =========================================
-   SCROLL REVEAL
-========================================= */
+
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 revealEls.forEach(el => revealObs.observe(el));
 
-/* =========================================
-   WISHES STAGGERED REVEAL
-========================================= */
+
 const wishItems = document.querySelectorAll('.wish-item');
 const wishObs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
@@ -713,10 +683,7 @@ const wishObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 if (wishItems[0]) wishObs.observe(wishItems[0]);
 
-/* =========================================
-   TYPING ANIMATION
-========================================= */
-const loveMsg = "Rida, I know I’m a little late in wishing you, but my feelings are truly from the heart. There are a thousand things I admire about you — not just how beautiful you are, but also how incredibly intelligent and graceful you seem every time I see you. We haven’t really spent much time together and have only met on a few occasions, yet every time I’ve seen you, you’ve felt even more special. The way your presence lights up a place and the charm you carry so effortlessly is something I genuinely appreciate. You are truly a rare and wonderful person. Belated Happy Birthday — I hope your life is filled with happiness, success, and all the beautiful things you deserve. 💖🎂";
+const loveMsg = "Arshi, I know I’m a little late in wishing you, but my feelings are truly from the heart. There are a thousand things I admire about you — not just how beautiful you are, but also how incredibly intelligent and graceful you seem every time I see you. We haven’t really spent much time together and have only met on a few occasions, yet every time I’ve seen you, you’ve felt even more special. The way your presence lights up a place and the charm you carry so effortlessly is something I genuinely appreciate. You are truly a rare and wonderful person. Belated Happy Birthday — I hope your life is filled with happiness, success, and all the beautiful things you deserve. 💖🎂";
 
 let typedIdx = 0;
 const typedEl = document.getElementById('typed-text');
@@ -734,9 +701,6 @@ const loveObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 loveObs.observe(document.getElementById('love-message'));
 
-/* =========================================
-   GALLERY
-========================================= */
 const galleryGrid = document.getElementById('gallery-grid');
 const galleryImages = [
   { src: 'img1.png',  alt: 'Memory 1' },
@@ -751,7 +715,6 @@ const galleryImages = [
   { src: 'img2.png',  alt: 'Memory 1' },
 ];
 
-// Placeholder gradient backgrounds for demo (replace with actual images)
 const placeholderColors = [
   'linear-gradient(135deg,#e8437a,#9c27b0)',
   'linear-gradient(135deg,#f7a8c4,#e8437a)',
@@ -795,9 +758,7 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
 
-/* =========================================
-   SURPRISE + CONFETTI
-========================================= */
+
 function showSurprise() {
   const reveal = document.getElementById('surprise-reveal');
   reveal.style.display = 'block';
@@ -876,9 +837,7 @@ function launchHeartExplosion() {
   }
 }
 
-/* =========================================
-   MUSIC
-========================================= */
+
 let isPlaying = false;
 const audio = document.getElementById('bg-music');
 const playBtn = document.getElementById('play-btn');
@@ -895,10 +854,7 @@ function toggleMusic() {
   }
 }
 
-/* =========================================
-   KEYBOARD CLOSE LIGHTBOX
-========================================= */
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
-</html>
+</html> -->
